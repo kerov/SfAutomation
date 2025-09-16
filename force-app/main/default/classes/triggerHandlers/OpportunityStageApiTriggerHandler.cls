@@ -49,6 +49,7 @@ public class OpportunityStageApiTriggerHandler extends TriggerHandler {
                 Logger.error('Error inserting webhook logs: ' + e.getMessage())
                     .setRecordId((Id)null)
                     .addTag('OpportunityStageApiTriggerHandler');
+                Logger.saveLog();
                 throw e;
             }
         }
@@ -60,6 +61,7 @@ public class OpportunityStageApiTriggerHandler extends TriggerHandler {
                 Logger.error('Error publishing platform events: ' + e.getMessage())
                     .setRecordId((Id)null)
                     .addTag('OpportunityStageApiTriggerHandler');
+                Logger.saveLog();
                 throw e;
             }
         }

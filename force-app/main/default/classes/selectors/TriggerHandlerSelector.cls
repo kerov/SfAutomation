@@ -16,6 +16,7 @@ public with sharing class TriggerHandlerSelector {
             Logger.error('Error querying trigger handlers for ' + sobjectType + ': ' + e.getMessage())
                 .setRecordId((Id)null)
                 .addTag('TriggerHandlerSelector');
+            Logger.saveLog();
             throw e;
         }
     }

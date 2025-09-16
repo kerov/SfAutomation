@@ -21,6 +21,7 @@ public class OpportunityApiLogCleanupBatch implements Database.Batchable<SObject
             Logger.error('Error deleting old Opportunity API Log records: ' + e.getMessage())
                 .setRecordId((Id)null)
                 .addTag('OpportunityApiLogCleanupBatch');
+            Logger.saveLog();
         }
     }
 

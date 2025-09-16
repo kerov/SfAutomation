@@ -11,6 +11,7 @@ public class OpportunityWebhookBatch implements Database.Batchable<Integer>, Dat
             Logger.error('Failed to start webhook processor from batch: ' + e.getMessage())
                 .setRecordId((Id)null)
                 .addTag('OpportunityWebhookBatch');
+            Logger.saveLog();
         }
     }
 

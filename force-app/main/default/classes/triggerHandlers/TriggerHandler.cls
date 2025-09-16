@@ -51,6 +51,7 @@ public abstract class TriggerHandler {
         Logger.error(errorMessage)
             .setRecordId((Id)null)
             .addTag('TriggerHandler');
+        Logger.saveLog();
 
         throw e;
     }

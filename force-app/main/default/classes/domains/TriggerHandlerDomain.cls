@@ -28,6 +28,7 @@ public with sharing class TriggerHandlerDomain {
             Logger.error('Error executing trigger handler: ' + handlerMdt.Handler_Name__c + ' - ' + e.getMessage())
                 .setRecordId((Id)null)
                 .addTag('TriggerHandlerDomain');
+            Logger.saveLog();
             throw e;
         }
     }

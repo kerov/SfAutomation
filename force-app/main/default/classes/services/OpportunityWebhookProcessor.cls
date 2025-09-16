@@ -13,6 +13,7 @@ public class OpportunityWebhookProcessor implements Queueable, Database.AllowsCa
             Logger.error('Error in OpportunityWebhookProcessor: ' + e.getMessage())
                 .setRecordId((Id)null)
                 .addTag('OpportunityWebhookProcessor');
+            Logger.saveLog();
         }
     }
 
@@ -63,6 +64,7 @@ public class OpportunityWebhookProcessor implements Queueable, Database.AllowsCa
                 Logger.error('Error processing individual log: ' + e.getMessage())
                     .setRecordId(log.Id)
                     .addTag('OpportunityWebhookProcessor');
+                Logger.saveLog();
 
                 log.Status__c = 'Failed';
                 log.ErrorMessage__c = 'Processing error: ' + e.getMessage();
@@ -79,6 +81,7 @@ public class OpportunityWebhookProcessor implements Queueable, Database.AllowsCa
                 Logger.error('Error updating final batch: ' + e.getMessage())
                     .setRecordId((Id)null)
                     .addTag('OpportunityWebhookProcessor');
+                Logger.saveLog();
             }
         }
 
@@ -115,6 +118,7 @@ public class OpportunityWebhookProcessor implements Queueable, Database.AllowsCa
             Logger.error('HTTP callout failed: ' + e.getMessage())
                 .setRecordId((Id)null)
                 .addTag('OpportunityWebhookProcessor');
+            Logger.saveLog();
             return false;
         }
     }
@@ -160,6 +164,7 @@ public class OpportunityWebhookProcessor implements Queueable, Database.AllowsCa
                 Logger.error('Failed to restart webhook processor: ' + e.getMessage())
                     .setRecordId((Id)null)
                     .addTag('OpportunityWebhookProcessor');
+                Logger.saveLog();
             }
         }
     }

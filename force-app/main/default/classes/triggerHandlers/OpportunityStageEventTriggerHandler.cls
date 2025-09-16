@@ -11,6 +11,7 @@ public class OpportunityStageEventTriggerHandler extends TriggerHandler {
             Logger.error('Error in OpportunityStageEventTriggerHandler: ' + e.getMessage())
                 .setRecordId((Id)null)
                 .addTag('OpportunityStageEventTriggerHandler');
+            Logger.saveLog();
         }
     }
 
@@ -24,6 +25,7 @@ public class OpportunityStageEventTriggerHandler extends TriggerHandler {
             Logger.error('Could not start webhook processor: ' + e.getMessage())
                 .setRecordId((Id)null)
                 .addTag('OpportunityStageEventTriggerHandler');
+            Logger.saveLog();
         }
     }
 
